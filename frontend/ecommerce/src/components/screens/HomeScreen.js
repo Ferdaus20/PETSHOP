@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import axios from "axios";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col ,Card} from "react-bootstrap";
 
 function HomeScreen() {
   const [products, setProducts] = useState([]);
@@ -25,18 +25,9 @@ function HomeScreen() {
       <Row>
         {products.map((product) => (
           <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-            <div style={{ textAlign: "center" }}>
-              <img
-                src={product.image}
-                alt={product.productname}
-                style={{
-                  width: "200px", // Set a fixed width
-                  height: "200px", // Set a fixed height
-                  objectFit: "cover", // Ensures consistent appearance
-                  borderRadius: "10px", // Optional: Adds rounded corners
-                }}
-              />
-            </div>
+            <Card className="my-3 p-3 rounded">
+            <img src={product.image} alt={product.productname} />
+            </Card>
             <h1>{product.productname}</h1>
             <h6>{product.productcategory}</h6>
             <h6>Information: {product.productdinfo}</h6>
